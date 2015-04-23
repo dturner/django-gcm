@@ -1,5 +1,8 @@
-from django.utils.importlib import import_module
-
+try:
+    from django.utils.module_loading import import_module
+except ImportError:
+    """Handle older versions of Django"""
+    from django.utils.importlib import import_module
 
 def load_object(object_path):
 
